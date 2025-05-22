@@ -19,13 +19,16 @@ async function sendMessage() {
   sendBtn.disabled = true;
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/ai-chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ message: message }),
-    });
+    const response = await fetch(
+      "https://openrouter-ggju.onrender.com/ai-chat",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: message }),
+      }
+    );
 
     if (!response.ok) {
       appendMessage("❌ Error: " + response.statusText, "bot");
